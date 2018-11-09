@@ -1,0 +1,222 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Admin</title>
+	<link href="/css/common.css" type="text/css" rel="stylesheet">
+	<link href="/css/admin.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+	<script src="/js/circle-progress.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.highcharts.com/highcharts.src.js"></script>
+</head>
+
+<body>
+
+	<div class="box">
+
+		<div class="tabs">
+			<div class="tab-button active">
+				<img src="/image/games.png">Games
+			</div>
+			<div class="tab-button">
+				<img src="/image/participants.png">Participants
+			</div>
+			<div class="tab-button">
+				<img src="/image/insights.png">Insights
+			</div>
+			<div class="tab-button">
+				<img src="/image/settings.png">Settings
+			</div>
+			<a href="/logout" class="logout">Log out</a>
+		</div>
+
+		<div class="tab-container">
+			
+			<div id="Games" class="tab-content">
+				<table class="games striped bordered">
+					<thead>
+						<th>&alpha;</th>
+						<th>&beta;</th>
+						<th>T</th>
+						<th></th>
+					</thead>
+
+					<tbody id="game-table-body">
+						<% for (var i = 0; i < games.length; i++) { %>
+							<% var game = games[i]; %>
+							<% if (game.is_warmup) { %>
+
+						<tr id="<%= game.id %>">
+							<td class="alpha"><%= game.alpha %></td>
+							<td class="beta"> <%= game.beta  %></td>
+							<td class="t">	  <%= game.t 	 %></td>
+							<td class="no-wrap">
+								Warm-Up
+								<div class="delete">Delete</div>
+							</td>
+						</tr>
+								<% break; %>
+							<% } %>
+						<% } %>
+
+						<% games.forEach((game) => { %>
+							<% if (!game.is_warmup) { %>
+
+						<tr id="<%= game.id %>">
+							<td class="alpha"><%= game.alpha %></td>
+							<td class="beta"> <%= game.beta  %></td>
+							<td class="t">	  <%= game.t 	 %></td>
+							<td class="no-wrap">
+								<div class="delete">Delete</div>
+							</td>
+						</tr>
+
+							<% } %>
+						<% }); %>
+					</tbody>
+					
+					<tfoot>
+						<td><input class="param float-only" type="text" id="alpha" placeholder="0.2"></td>
+						<td><input class="param float-only" type="text" id="beta" placeholder="0.6"></td>
+						<td><input class="param int-only" type="text" id="t" 	placeholder="10"></td>
+						<td>
+							<button class="alt small add-games">Add</button>
+						</td>
+					</tfoot>
+				</table>
+			</div>
+
+			<div id="Participants" class="tab-content bottom">
+				<div class="content">
+					<h3>Number of Pairs: 
+						<label id="count"><%= count %></label>
+					</h3>
+					<div class="input-board">
+						<input class="alt int-only add-pairs" type="text" placeholder="1~100">
+						<button class="alt add-pairs">Add</button>
+					</div>
+					<div class="line"></div>
+					<div class="divide-box">
+						<div class="panel left">
+							<table class="participants striped bordered">
+								<thead>
+									<th>Pairs</th>
+									<th></th>
+								</thead>
+
+								<tbody id="participant-table-body">
+								<% pairs.forEach(function(p) { %>
+									<tr class="button">
+										<td>
+											<p><%= p.buyer %></p>
+											<p><%= p.seller %></p>
+										</td>
+										<td>
+											<p> 》 </p>
+										</td>
+								<% }); %>
+								</tbody>
+							</table>
+							<div class="turn-buttons">
+								<button class="alt turn"> < </button>
+								<div class="pages"></div>
+								<button class="alt turn"> > </button>
+							</div>
+							
+						</div>
+					
+						<div class="panel right">
+							<div class="delete-container">
+								<label>···</label>
+								<div id="reset-pair" class="reset-pair">Reset</div>
+								<div id="delete-pair" class="delete-pair">Delete</div>
+							</div>
+							<div class="roles">
+								Buyer: 
+								<label id="buyer"></label>
+								Seller:
+								<label id="seller"></label>
+							</div>
+							<table class="pair bordered striped">
+								<thead>
+									<th>&alpha;</th>
+									<th>&beta;</th>
+									<th>T</th>
+									<th colspan="2"></th>
+								</thead>
+								<tbody id="pair-table-body">
+								</tbody>
+								<tfoot>
+									<td colspan="5">Total: 0</td>
+								</tfoot>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="Insights" class="tab-content" align="center">
+				<div id="all-chart" class="chart"></div>
+				<div class="refresh">Refresh</div>
+			</div>
+
+			<div id="Settings" class="tab-content">
+				<div class="content">
+					<table class="settings">
+						<tr>
+							<td>Download Data</td>
+							<td>
+								<a class="download" download>
+									<p>Download</p>
+									<label>&#10004;</label>
+									<div id="loader" class="circle"></div>
+									<div id="back-circle" class="circle"></div>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>Clear Participants</td>
+							<td>
+								<div id="clear-participants" class="clear">Clear</div>
+							</td>
+						</tr>
+						<tr>
+							<td>Clear All</td>
+							<td>
+								<div id="clear-all" class="clear">Clear All</div>
+							</td>
+						</tr>
+						<tr>
+							<td>Pause / Resume</td>
+							<td>
+								<div class="resume on">
+									<label></label>
+								</div>
+								<div class="pause">
+									<label></label>
+									<label></label>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript">
+    var paused = <%= paused %>;
+    if (paused) {
+        $(".resume.on").removeClass("on");
+        $(".pause").addClass("paused");
+    }
+    $("#Games").show();
+  </script>
+	<script type="text/javascript" src="/js/admin.js"></script>
+</body>
+
+</html>

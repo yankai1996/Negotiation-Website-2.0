@@ -1,0 +1,764 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+table {
+    font-weight: 300;
+}
+
+table thead th {
+    font-weight: 400;
+}
+
+/* Tabs */
+
+.tabs {
+    overflow: hidden;
+    margin-bottom: 14px;
+    background-color: #f1f1f1;
+    border: none;
+}
+
+.tab-button {
+    background-color: inherit;
+    float: left;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    transition: 0.3s;
+    font-size: 16;
+    font-weight: 400;
+    filter: opacity(60%)
+}
+
+.tab-button:hover {
+    background-color: #ddd;
+    filter: none;
+}
+
+.tab-button img {
+    width: 22px;
+    height: 22px;
+    margin-bottom: -4px;
+    padding-right: 5px;
+}
+
+.icon.games {
+    background: url('/image/games.png')
+}
+
+.tab-button.active {
+    background-color: #fff;
+    filter: none;
+}
+
+.tab-content {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+.tab-content.bottom {
+    height: auto;
+    /* padding-bottom: 20px; */
+    margin-bottom: 20px;
+}
+
+.logout {
+    position: absolute;
+    right: 0;
+    background: #159287;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout:hover {
+    background: #11746b;
+}
+
+/* Table Games */
+
+table.games {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 80%;
+    background-color: #fff;
+    display: table
+}
+
+table.games td, table.games th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table.games tbody tr, table.games tbody td {
+    cursor: pointer;
+}
+
+table.games tbody td:last-child {
+    width: 61px;
+    padding-right: 10px;
+    position: relative;
+}
+
+.delete {
+    display: none;
+    width: 100%;
+    height: 35px;
+    margin-top: -8;
+    margin-bottom: -8;
+    border: none;
+    float: right;
+    text-align: center;
+    line-height: 35px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    background-color: red;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 8px;
+}
+
+table.games input {
+    max-width: 70px;
+    height: 27px;
+    font-size: 16px
+}
+
+table.games tfoot td {
+    padding-left: 12px
+}
+
+table.games tfoot td:last-child {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+/* Tabel Participants */
+
+table.participants {
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table
+}
+
+table.participants td, table.participants th {
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: 16px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.participants td>.delete {
+    /* position: absolute; */
+    top: 8px;
+    /* right: 0;
+    z-index: 5; */
+    width: 60px;
+    height: 100%;
+    line-height: 65px;
+    vertical-align: middle;
+    direction: rtl;
+}
+
+table.participants tbody tr {
+    display: none;
+}
+
+table.participants tbody tr td:first-child, table.participants th {
+    width: 80%;
+    padding-left: 21px;
+}
+
+table.participants tbody tr td:last-child p {
+    color: #ddd;
+    opacity: 0;
+    font-size: 20px;
+    display: table-cell;
+    transition: 0.3s;
+}
+
+table.participants tbody tr:hover>td:last-child p {
+    opacity: 1;
+}
+
+.focused {
+    background-color: #ddd!important;
+}
+
+/* Tabel Pair */
+
+table.pair {
+    width: 500px;
+    margin-top: 0px;
+    margin-bottom: 60px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: inline-block
+}
+
+table.pair td, table.pair th {
+    display: table-cell;
+    padding: 8px 30px;
+    width: 30px;
+    font-weight: 300;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+table.pair td:nth-child(6) {
+    border-left: 1px solid #ccc;
+}
+
+table.pair td:last-child {
+    width: 100%;
+}
+
+table.pair tfoot td {
+    text-align: right;
+    border-top: 1px solid #ccc;
+}
+
+/* Table Assignment */
+
+table.assignment {
+    width: 500px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block
+}
+
+table.assignment tbody {
+    border-top: 1px solid #ccc;
+    border-bottom: none;
+}
+
+table.assignment tbody .assign {
+    cursor: pointer;
+    min-width: 26px;
+}
+
+table.assignment td, table.assignment th {
+    display: table-cell;
+    padding: 8px 10px;
+    font-weight: 300;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table.assignment td:first-child {
+    padding-right: 16px;
+}
+
+table.assignment td:first-child>label {
+    margin-top: -10px;
+}
+
+table.assignment th:nth-child(2) {
+    padding-left: 30px;
+    padding-right: 0px;
+}
+
+table.assignment td:last-child {
+    padding-right: 0;
+    position: relative;
+}
+
+table.assignment td:last-child>div {
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 16px;
+    /* transform: translateY(-50%); */
+}
+
+table.assignment th:last-child {
+    width: 100%;
+}
+
+table.assignment tfoot td {
+    text-align: right;
+    padding-right: 20px !important;
+    border-top: 1px solid #ccc;
+}
+
+/* Input */
+
+.input-board {
+    height: 35px;
+}
+
+input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    /* color: #000; */
+    opacity: 0.5;
+}
+
+input:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+input.alt {
+    height: 100%;
+    font-size: 16px;
+}
+
+/* Button */
+
+button.alt {
+    height: 34px;
+    padding: 0px 25px;
+    background-color: #fff;
+    border-radius: 17px;
+    border: 1px solid #ccc;
+    outline: 0;
+    font-size: 16px;
+    color: #555;
+    background: #fff;
+    transition: 0.3s;
+}
+
+button.alt:hover {
+    background: #f1f1f1;
+}
+
+button.alt.small {
+    width: 100%;
+    height: 28px;
+    border-radius: 14px;
+    font-size: 14px;
+    padding: 0px 10px;
+}
+
+/* Panel */
+
+.divide-box {
+    min-height: 710px;
+    margin-bottom: 40px;
+}
+
+.panel.left {
+    float: left;
+    width: 120px;
+}
+
+.panel.right {
+    position: relative;
+    padding-top: 12px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    margin-top: 20px !important;
+    margin-left: 150px;
+    border: 1px solid #ccc!important;
+    display: none;
+}
+
+.delete-container {
+    position: absolute;
+    bottom: 18px;
+    right: 13px;
+    height: 34px;
+    width: 34px;
+    color: #ccc;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 5;
+    transition: background-color 0.3s ease;
+}
+
+.delete-container:hover {
+    background: #eee;
+}
+
+.delete-container > div:hover {
+    filter: grayscale(30%);
+}
+
+.delete-container * {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.delete-container label {
+    left: 4px;
+    height: 30px;
+    width: 30px;
+    font-size: 40px;
+    line-height: 32px;
+    letter-spacing: -2px;
+    cursor: pointer;
+}
+
+.delete-container .delete-pair {
+    display: block !important;
+    overflow: hidden;
+    margin: 0;
+    left: 34px;
+    padding: 0 18px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    background-color: red;
+    cursor: pointer;
+    border-radius: 2px;
+    line-height: 35px;
+}
+
+.delete-container .reset-pair {
+    display: block !important;
+    overflow: hidden;
+    margin: 0;
+    left: 120px;
+    padding: 0 18px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    background-color: #2048ff;
+    cursor: pointer;
+    border-radius: 2px;
+    line-height: 35px;
+}
+
+.roles {
+    position: relative;
+    padding-bottom: 10px;
+    white-space: nowrap;
+}
+
+.roles label {
+    padding-right: 20px
+}
+
+.turn-buttons {
+    height: 30px;
+    margin-top: -10px;
+    text-align: center;
+    z-index: 5;
+}
+
+button.turn {
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    color: #ccc;
+    padding: 0;
+    border-radius: 3px;
+}
+
+button.turn:hover {
+    background: #f1f1f1;
+    color: #ccc;
+}
+
+
+.pages {
+    width: 50px;
+    display: inline-block;
+}
+
+/* Settings */
+
+.setting-box {
+    width: 100%;
+    min-width: 500px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    text-align: center
+}
+
+table.settings {
+    margin: 10px auto;
+    border-collapse: collapse;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+
+table.settings td {
+    position: relative;
+    /* border-bottom: 1px solid #ddd; */
+    border-bottom: 1px solid #ddd;
+    height: 90px;
+    padding: 20px 30px;
+}
+
+table.settings tr td:first-child {
+    width: 100px;
+    white-space: nowrap;
+    /* border-color: #ddd transparent; */
+}
+table.settings tr td:nth-child(2) {
+    text-align: center;
+    /* border-right: none; */
+}
+
+a.download {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border: 1px solid #159287;
+    width: 182px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 23px;
+    display: inline-block;
+    color: #159287;
+    background: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+a.download:hover {
+    color: #fff;
+    background: #159287;
+}
+
+a.download.nohover {
+    transition: 0s;
+    -webkit-transitio: none;
+}
+
+a.download.nohover:hover {
+    color: #159287;
+    background: #fff;
+    cursor: default;
+}
+
+a.download * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+a.download p {
+    margin: auto;
+}
+
+a.download label {
+    color: #fff;
+    display: none;
+    z-index: 100;
+}
+
+a.download .circle {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+}
+
+.pause {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border: 1px solid #eee;
+    width: 130px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 23px;
+    display: inline-block;
+    background: #eee;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pause:hover {
+    color: #fff;
+    background: red;
+}
+
+.pause.paused {
+    background: red;
+    color: #fff;
+    width: 46px;
+    cursor: default;
+}
+
+.pause.paused:hover {
+    background: red;
+    color: #fff;
+}
+
+.pause label {
+    display: inline-block;
+    margin: 15px auto;
+    width: 5px;
+    height: 16px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.pause.paused label:hover {
+    cursor: default;
+}
+
+.resume {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border: 1px solid #eee;
+    width: 130px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 23px;
+    display: inline-block;
+    background: #eee;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.resume:hover {
+    background: #8c8;
+    color: #fff;
+}
+
+.resume.on {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border: 1px solid #8c8;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 23px;
+    display: inline-block;
+    color: #fff;
+    background: #8c8;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.resume.on:hover {
+    background: #8c8;
+    color: #fff;
+}
+
+.resume label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-35%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent #fff;
+    cursor: pointer;
+}
+
+.resume.on label:hover {
+    cursor: default;
+}
+
+.clear {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border: 1px solid red;
+    width: 182px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 23px;
+    display: inline-block;
+    color: red;
+    background: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.clear:hover {
+    background: red;
+    color: #fff;
+}
+
+.chart {
+    min-height: 400px;
+    width: 600px;
+    margin: 20px auto;
+}
+
+.refresh {
+    margin: 10px auto 40px auto;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border: 1px solid #159287;
+    width: 182px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 23px;
+    display: inline-block;
+    color: #159287;
+    background: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.refresh:hover {
+    background: #eee;
+}

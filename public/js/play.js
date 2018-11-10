@@ -344,6 +344,12 @@ const dealer = new function() {
 		this.endPeriod();
 	}
 
+	this.leave = () => {
+		this.period.leave = true;
+		this.period.decided_at = timer.lap();
+		this.endPeriod();
+	}
+
 	this.onDecision = (period) => {
 		this.period = period;
 		timer.stop();
@@ -362,7 +368,9 @@ const dealer = new function() {
 
 	this.ending = false;
 	this.endPeriod = () => {
-		if (!isMyTurn() || this.ending) {
+		if (this.ending) {
+			return;
+		} else if (!isMyTurn() && $role.html() != 'seller') {
 			return;
 		}
 		this.ending = true;
@@ -601,6 +609,10 @@ btnListenr.reject = () => {
 	dealer.decide(false);
 }
 
+btnListenr.leave = () => {
+	ensureConnection();
+
+}
 
 $ready.click((event) => {
 	ensureConnection();

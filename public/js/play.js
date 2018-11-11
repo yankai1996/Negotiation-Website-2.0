@@ -64,6 +64,7 @@ var $accept = $("button#accept")
   , $gamesLeft = $("#games-left")
   , $labelExternal = $("#external-buyers-label")
   , $labelHighest = $("#highest-price-label")
+  , $labelNumber = $("p.number")
   , $leave = $("button#leave")
   , $loader = $(".loader")
   , $operation = $(".operation")
@@ -265,11 +266,16 @@ const dealer = new function() {
 		if (!period) {
 			$labelExternal.html('0');
 			$labelHighest.html('$0.00');
-			return
-		} 
-		if (period.show_up_external_buyer) {
+		} else {
 			$labelExternal.html(period.external_buyers);
-			$labelHighest.html('$' + highest_price.toFixed(2))
+			$labelHighest.html('$' + period.highest_price.toFixed(2))
+			if (period.show_up_external_buyer) {
+				$labelNumber.animate({
+					color: '#f80',
+				}, 300).animate({
+					color: '#888'
+				}, 300);
+			}
 		}
 	}
 
@@ -675,8 +681,8 @@ $(window).bind('beforeunload', function() {
 
 $description.load("/html/description.html");
 
-$boxes.hide()
-$game.show()
+// $boxes.hide()
+// $game.show()
 
 // // for test
 // $reconnect.click(() => {

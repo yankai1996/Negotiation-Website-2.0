@@ -272,9 +272,9 @@ const dealer = new function() {
 			if (period.show_up_external_buyer) {
 				$labelNumber.animate({
 					color: '#f80',
-				}, 300).animate({
+				}, 500).animate({
 					color: '#888'
-				}, 300);
+				}, 500);
 			}
 		}
 	}
@@ -309,6 +309,10 @@ const dealer = new function() {
 		timer.reset();
 
 		this.setExternalBuyers(this.period);
+
+		if ($role.html() == 'seller') {
+			enableButton($leave, btnListenr.leave);
+		}
 
 		if (this.period.proposer_id == ID) {
 			$input.val('').show();
@@ -360,6 +364,7 @@ const dealer = new function() {
 		this.period = period;
 		timer.stop();
 		disableButton($operationButtons);
+		disableButton($leave);
 		if (this.period.leave) {
 			showProposal('LEAVE');
 		} else if (this.period.accepted) {
@@ -617,7 +622,7 @@ btnListenr.reject = () => {
 
 btnListenr.leave = () => {
 	ensureConnection();
-
+	dealer.leave();
 }
 
 $ready.click((event) => {

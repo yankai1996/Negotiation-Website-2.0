@@ -194,6 +194,7 @@ Dealer.prototype.nextPeriod = function (initial = false) {
         : this.game.seller_id;
     var show_up_external_buyer = Math.random() < this.game.alpha;
     var external_buyers = initial ? 0 : this.period.external_buyers;
+    external_buyers += show_up_external_buyer ? 1 : 0;
     
     this.period = {
         number: initial 
@@ -209,9 +210,7 @@ Dealer.prototype.nextPeriod = function (initial = false) {
         leave: false,
         decided_at: null,
         show_up_external_buyer: show_up_external_buyer,
-        external_buyers: show_up_external_buyer
-            ? external_buyers + 1
-            : external_buyers,
+        external_buyers: external_buyers,
         highest_price: TABLE[this.game.t][external_buyers]
     }
 
@@ -223,7 +222,7 @@ Dealer.prototype.nextPeriod = function (initial = false) {
 
 // send proposal to opponent
 Dealer.prototype.propose = function () {
-    if (this.bothReady()) {
+    if (this.bothReady() && !this.ending) {
         this.toBoth(EVENT.PROPOSE, this.period);
     }
 }
@@ -234,6 +233,7 @@ Dealer.prototype.endPeriod = async function () {
         return;
     }
     this.ending = true;
+
     this.toBoth(EVENT.DECISION, this.period);
     await Assistant.savePeriod(this.game.id, this.period);
     if (this.period.leave || this.period.accepted || !this.nextPeriod()) {

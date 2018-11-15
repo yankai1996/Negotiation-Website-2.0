@@ -1,26 +1,33 @@
 <!-- Description -->
 <div class="line"></div>
 
-<div id="buyer-problem">
+<div>
     <h3>Parameters</h3>
-    <table class="params-description">
+    <table class="params" id="params">
         <tr>
-          <td>&alpha; = 0.2</td>
+          <td>&alpha; =</td>
+          <td class="alpha"><%= defaultParams.alpha %></td>
           <td>the probability that an external buyer shows in each period</td>
         </tr>
         <tr>
-          <td>&beta; = 0.6</td>
+          <td>&beta; =</td>
+          <td class="beta"><%= defaultParams.beta %></td>
           <td>the probability that the buyer proposes the price in each period</td>
         </tr>
-          <td>T = 10</td>
+          <td>T =</td>
+          <td class="t"><%= defaultParams.t %></td>
           <td>the maximum number of negotiation periods</td>
         </tr>
         <tr>
-          <td colspan="2">Reselling price = $12</td>
-        </tr>
-        <tr>
-          <td colspan="2">Negotiation cost = $0.1/period</td>
-        </tr>
+            <td colspan="3">
+                Reselling price = $<label id="reselling-price"><%= money.resellingPrice %></label>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+                Negotiation cost = $<label id="period-cost"><%= money.periodCost %></label>/period
+            </td>
+          </tr>
       </table>
 </div>
 

@@ -94,10 +94,11 @@ var $accept = $("button#accept")
   ,	$warmup = $("#warm-up")
   ;
 
+var DEFAULT_PARAMS; 
 
 const socket = io.connect();
-socket.on(COMMAND.AUTH, (data, respond) => {
-	console.log(data);
+socket.on(COMMAND.AUTH, (defaultParams, respond) => {
+	DEFAULT_PARAMS = DEFAULT_PARAMS || defaultParams;
 	var info = {
 		id: ID,
 		waiting: gWaitingOpponent,
@@ -461,13 +462,8 @@ socket.on(EVENT.NEW_GAME, (data) => {
 		$leave.hide()
 	}
 
-	const defaultParams = {
-		alpha: 0.2,
-		beta: 0.6,
-		t: 10
-	};
-
-	var game = data.game;
+	const defaultParams = DEFAULT_PARAMS;
+	const game = data.game;
 	for (let i in defaultParams) {
 		let $param = $("." + i);
 		$param.html(game[i]);
@@ -599,7 +595,7 @@ var btnListenr = {}
 btnListenr.propose = () => {
 	ensureConnection();
 	var price = +parseFloat($input.val()).toFixed(2);
-	if (isNaN(price) || price <= 0 || price > 12) {
+	if (isNaN(price) || price <= 0 || price > parseInt($('#reselling-price').html())) {
 		$input.animate({
 			color: '#f88',
 		}, 300).animate({
@@ -684,7 +680,6 @@ $(window).bind('beforeunload', function() {
 	}
 });
 
-$description.load("/html/description.html");
 
 // $boxes.hide()
 // $game.show()

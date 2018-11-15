@@ -1,5 +1,6 @@
 const excel = require('excel4node');
 const db = require('./db');
+const basePayment = require('../config').money.basePayment;
 const MasterGame = db.MasterGame;
 const Game = db.Game;
 const Participant = db.Participant;
@@ -124,7 +125,7 @@ exports.addPairs = async (n) => {
         await Participant.create({
             id: randomID,
             role: opponentID ? 'buyer' : 'seller',
-            payoff: 40,
+            payoff: basePayment,
             opponent: opponentID
         }).then((result) => {
             i++;
@@ -245,7 +246,7 @@ exports.resetPair = async (buyer, seller) => {
         }
     });
     await Participant.update({
-        payoff: 40
+        payoff: basePayment
     }, {
         where: {
             $or: [{id: buyer},
@@ -261,7 +262,7 @@ exports.getPrtofitByRole = async (role) => {
     var profits = await Participant.findAll({
         where: {role: role}
     }).then((result) => {
-        return result.map(p => p.payoff - 40);
+        return result.map(p => p.payoff - basePayment);
     });
     return profits;
 }

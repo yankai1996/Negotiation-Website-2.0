@@ -33,8 +33,19 @@ const money = {
     resellingPrice: 12
 };
 
+// highest price table
+const table = {
+    10: [1.00, 5.00, 8.00, 10.26, 12.12, 13.74,
+        15.22, 16.59, 17.90, 19.16, 20.37],
+    5: [5.00, 8.00, 10.26, 12.12, 13.74, 15.22],
+    15: [0.00, 1.00, 5.00, 8.00, 10.26, 12.12,
+        13.74, 15.22, 16.59, 17.90, 19.16,
+        20.37, 21.56, 22.72, 23.87, 24.99]
+}
+
 exports.dbConfig = dbConfig;
 exports.adminConfig = adminConfig;
 exports.serverConfig = serverConfig;
 exports.defaultParams = defaultParams;
 exports.money = money;
+exports.table = table;

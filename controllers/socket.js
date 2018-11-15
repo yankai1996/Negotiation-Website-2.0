@@ -4,6 +4,7 @@ const Instructor = require('../models/instructor');
 const auth = require('./auth');
 const defaultParams = require('../config').defaultParams;
 const resellingPrice = require('../config').money.resellingPrice;
+const TABLE = require('../config').table;
 
 const COMMAND = {
     AUTH: "cmd auth",
@@ -24,15 +25,6 @@ const EVENT = {
     RESULT: 'result',
     TEST: 'test',
     WAIT: 'wait opponent',
-}
-
-const TABLE = {
-    10: [1.00, 5.00, 8.00, 10.26, 12.12, 13.74,
-        15.22, 16.59, 17.90, 19.16, 20.37],
-    5: [5.00, 8.00, 10.26, 12.12, 13.74, 15.22],
-    15: [0.00, 1.00, 5.00, 8.00, 10.26, 12.12,
-        13.74, 15.22, 16.59, 17.90, 19.16,
-        20.37, 21.56, 22.72, 23.87, 24.99]
 }
 
 

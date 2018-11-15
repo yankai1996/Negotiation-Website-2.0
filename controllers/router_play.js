@@ -58,7 +58,8 @@ const complete = async (req, res) => {
         var summary = await Assistant.getSummary(id);
         res.render('play_complete', {
             participantID: id,
-            summary: summary
+            summary: summary,
+            basePayment: money.basePayment
         })
     }
 }

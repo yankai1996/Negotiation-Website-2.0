@@ -2,8 +2,10 @@ const express = require('express');
 const getRouter = express.Router();
 const auth = require('./auth');
 const Assistant = require('../models/assistant');
-const defaultParams = require('../config').defaultParams;
-const money = require('../config').money;
+const config = require('../config');
+const defaultParams = config.defaultParams;
+const money = config.money;
+const table = config.table;
 
 const getStatus = async (req, res, next) => {
     var id = auth.getParticipantID(req.cookies);
@@ -28,7 +30,8 @@ const renderPlay = (req, res) => {
     res.render('play', {
         participantID: auth.getParticipantID(req.cookies),
         flag: req.status,
-        paused: req.paused
+        paused: req.paused,
+        table: table
     });
 }
 
@@ -41,7 +44,8 @@ getRouter.get('/play', renderPlay);
 const renderDescription = (req, res) => {
     res.render('description', {
         defaultParams: defaultParams,
-        money: money
+        money: money,
+        table: table
     });
 }
 

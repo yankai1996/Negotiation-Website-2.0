@@ -44,39 +44,11 @@
         <td>Total Number of External buyers in 10 periods</td>
         <td>Highest Price from External buyers</td>
       </tr>
-      <tr>
-        <td>0</td><td>1.00</td>
-      </tr>
-      <tr>
-        <td>1</td><td>5.00</td>
-      </tr>
-      <tr>
-        <td>2</td><td>8.00</td>
-      </tr>
-      <tr>
-        <td>3</td><td>10.26</td>
-      </tr>
-      <tr>
-        <td>4</td><td>12.12</td>
-      </tr>
-      <tr>
-        <td>5</td><td>13.74</td>
-      </tr>
-      <tr>
-        <td>6</td><td>15.22</td>
-      </tr>
-      <tr>
-        <td>7</td><td>16.59</td>
-      </tr>
-      <tr>
-        <td>8</td><td>17.90</td>
-      </tr>
-      <tr>
-        <td>9</td><td>19.16</td>
-      </tr>
-      <tr>
-        <td>10</td><td>20.37</td>
-      </tr>
+      <% for (var i = 0; i <= 10; i++) { %>
+          <tr>
+            <td><%= i %></td><td><%= table[10][i].toFixed(2) %></td>
+          </tr>
+      <% } %>
     </table>
     <p>
         Your goal is to maximize your profit by deciding what price to offer if you are asked to propose the price, and deciding whether you want to accept the price proposed by the seller.
@@ -96,39 +68,11 @@
         <td>Total Number of External buyers in 10 periods</td>
         <td>Highest Price from External buyers</td>
       </tr>
-      <tr>
-        <td>0</td><td>1.00</td>
-      </tr>
-      <tr>
-        <td>1</td><td>5.00</td>
-      </tr>
-      <tr>
-        <td>2</td><td>8.00</td>
-      </tr>
-      <tr>
-        <td>3</td><td>10.26</td>
-      </tr>
-      <tr>
-        <td>4</td><td>12.12</td>
-      </tr>
-      <tr>
-        <td>5</td><td>13.74</td>
-      </tr>
-      <tr>
-        <td>6</td><td>15.22</td>
-      </tr>
-      <tr>
-        <td>7</td><td>16.59</td>
-      </tr>
-      <tr>
-        <td>8</td><td>17.90</td>
-      </tr>
-      <tr>
-        <td>9</td><td>19.16</td>
-      </tr>
-      <tr>
-        <td>10</td><td>20.37</td>
-      </tr>
+      <% for (var i = 0; i <= 10; i++) { %>
+          <tr>
+            <td><%= i %></td><td><%= table[10][i].toFixed(2) %></td>
+          </tr>
+      <% } %>
     </table>
     <p>
         Your goal is to maximize your profit by deciding what price to offer if you are asked to propose the price, and deciding whether you want to accept the price proposed by the buyer.
@@ -142,24 +86,11 @@
       <td>Total Number of External buyers in 5 periods</td>
       <td>Highest Price from External buyers</td>
     </tr>
-    <tr>
-      <td>0</td><td>5.00</td>
-    </tr>
-    <tr>
-      <td>1</td><td>8.00</td>
-    </tr>
-    <tr>
-      <td>2</td><td>10.26</td>
-    </tr>
-    <tr>
-      <td>3</td><td>12.12</td>
-    </tr>
-    <tr>
-      <td>4</td><td>13.74</td>
-    </tr>
-    <tr>
-      <td>5</td><td>15.22</td>
-    </tr>
+      <% for (var i = 0; i <= 5; i++) { %>
+          <tr>
+            <td><%= i %></td><td><%= table[5][i].toFixed(2) %></td>
+          </tr>
+      <% } %>
   </table>
   <p>If there are in total 15 periods, then the highest price from external buyers are given the following table:</p>
   <table class="price">
@@ -167,53 +98,10 @@
       <td>Total Number of External buyers in 15 periods</td>
       <td>Highest Price from External buyers</td>
     </tr>
-    <tr>
-      <td>0</td><td>0.00</td>
-    </tr>
-    <tr>
-      <td>1</td><td>1.00</td>
-    </tr>
-    <tr>
-      <td>2</td><td>5.00</td>
-    </tr>
-    <tr>
-      <td>3</td><td>8.00</td>
-    </tr>
-    <tr>
-      <td>4</td><td>10.26</td>
-    </tr>
-    <tr>
-      <td>5</td><td>12.12</td>
-    </tr>
-    <tr>
-      <td>6</td><td>13.74</td>
-    </tr>
-    <tr>
-      <td>7</td><td>15.22</td>
-    </tr>
-    <tr>
-      <td>8</td><td>16.59</td>
-    </tr>
-    <tr>
-      <td>9</td><td>17.90</td>
-    </tr>
-    <tr>
-      <td>10</td><td>19.16</td>
-    </tr>
-    <tr>
-      <td>11</td><td>20.37</td>
-    </tr>
-    <tr>
-      <td>12</td><td>21.56</td>
-    </tr>
-    <tr>
-      <td>13</td><td>22.72</td>
-    </tr>
-    <tr>
-      <td>14</td><td>23.87</td>
-    </tr>
-    <tr>
-      <td>15</td><td>24.99</td>
-    </tr>
+      <% for (var i = 0; i <= 15; i++) { %>
+          <tr>
+            <td><%= i %></td><td><%= table[15][i].toFixed(2) %></td>
+          </tr>
+      <% } %>
   </table>
 </div>

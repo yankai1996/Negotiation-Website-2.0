@@ -123,15 +123,7 @@
     </div>
     <div class="content">
       <div id="params-table"></div>
-      <% const TABLE = {
-          10: [1.00, 5.00, 8.00, 10.26, 12.12, 13.74,
-              15.22, 16.59, 17.90, 19.16, 20.37],
-          5: [5.00, 8.00, 10.26, 12.12, 13.74, 15.22],
-          15: [0.00, 1.00, 5.00, 8.00, 10.26, 12.12,
-              13.74, 15.22, 16.59, 17.90, 19.16,
-              20.37, 21.56, 22.72, 23.87, 24.99]
-      } %> 
-      <% for (key in TABLE) { %>
+      <% for (key in table) { %>
         <table id="table<%= key %>" class="price">
           <tr>
             <td>Total Number of External buyers in <%= key %> periods</td>
@@ -139,7 +131,7 @@
           </tr>
           <% for (var i = 0; i <= key; i++) { %>
           <tr>
-            <td><%= i %></td><td><%= TABLE[key][i].toFixed(2) %></td>
+            <td><%= i %></td><td><%= table[key][i].toFixed(2) %></td>
           </tr>
           <% } %>
         </table>

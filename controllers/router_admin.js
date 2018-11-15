@@ -1,8 +1,9 @@
-var express = require('express');
-var getRouter = express.Router();
-var postRouter = express.Router();
-var auth = require('./auth')
-var Instructor = require('../models/instructor');
+const express = require('express');
+const getRouter = express.Router();
+const postRouter = express.Router();
+const auth = require('./auth')
+const Instructor = require('../models/instructor');
+const defaultParams = require('../config').defaultParams;
 
 
 // add games to request
@@ -30,6 +31,7 @@ const checkPaused = async (req, res, next) => {
 const renderAdmin = (req, res, next) => {
     res.render('admin', {
         games: req.games,
+        defaultParams: defaultParams,
         pairs: req.pairs,
         count: req.count,
         paused: req.paused

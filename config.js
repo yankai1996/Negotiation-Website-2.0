@@ -19,6 +19,22 @@ var serverConfig = {
     port: 8888
 }
 
+// the experiment parameters
+const defaultParams = {
+    alpha: 0.2,
+    beta: 0.6,
+    t: 10
+}
+
+// the base payment
+const money = {
+    basePayment: 40,
+    periodCost: 0.1,
+    resellingPrice: 12
+};
+
 exports.dbConfig = dbConfig;
 exports.adminConfig = adminConfig;
 exports.serverConfig = serverConfig;
+exports.defaultParams = defaultParams;
+exports.money = money;

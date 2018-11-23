@@ -148,9 +148,11 @@ exports.endGame = async (game, period) => {
             where: {id: game.seller_id}
         });
     }
+
+    var price = period.leave ? null : period.price;
     
     return Game.update({
-        price: period.price,
+        price: price,
         external_buyers: period.external_buyers,
         highest_price: period.highest_price,
         buyer_payoff: buyerPayoff,
@@ -162,7 +164,7 @@ exports.endGame = async (game, period) => {
         where: {id: game.id}
     }).then((result) => {
         return {
-            price: period.price,
+            price: price,
             externalBuyers: period.external_buyers,
             highestPrice: period.highest_price,
             cost: cost,

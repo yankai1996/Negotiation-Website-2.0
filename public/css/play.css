@@ -216,10 +216,6 @@ button.big.view:hover {
     white-space: nowrap;
 }
 
-/* .preparation-content table td:nth-child(2n+1) {
-    width: 30px;
-} */
-
 table.params {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
@@ -583,5 +579,10 @@ table.price th, table.price td {
     width: 180px;
     padding: 3px;
     border: solid 1px #000;
+    text-align: center;
+}
+
+div.table-box {
+    padding: 5px;
     text-align: center;
 }

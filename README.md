@@ -68,10 +68,10 @@ Your goal is to maximize your profit by deciding what price to offer if you are 
 | &beta; = 0.6  | the probability that the buyer proposes the price in each period |
 | T = 10        | the maximum number of negotiation periods                    |
 
-| Constant                       |
-| ------------------------------ |
-| Reselling price = $12          |
-| Negotiation cost = $0.1/period |
+| Constant         |             |
+| ---------------- | ----------- |
+| Reselling price  | $12         |
+| Negotiation cost | $0.1/period |
 
 If there are in total 5 periods, then the highest price from external buyers are given in [Table 2](#table-2):
 

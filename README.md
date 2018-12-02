@@ -10,6 +10,16 @@ The website is based on
 * Node.js
 * MySQL
 
+## Installation
+
+- [Download](https://github.com/yankai1996/RA-Website/archive/master.zip) and unzip the source code.
+- Run `npm install`.
+- Create a new MySQL database.
+- Open `config.js`, customize the variables you need.
+- Run `node server.js` to launch the website.
+
+
+
 ### Modules Dependency
 
 * `express` - The website framework
@@ -110,11 +120,3 @@ If there are in total 15 periods, then the highest price from external buyers ar
 |                         15                         |                  24.99                  |
 
 
-
-## Installation
-
-* [Download](https://github.com/yankai1996/RA-Website/archive/master.zip) and unzip the source code.
-* Run `npm install`.
-* Create a new MySQL database.
-* Open `config.js`, customize the variables you need.
-* Run `node server.js` to launch the website.

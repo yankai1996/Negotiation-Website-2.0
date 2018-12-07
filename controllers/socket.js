@@ -7,6 +7,7 @@ const resellingPrice = require('../config').money.resellingPrice;
 const TABLE = require('../config').table;
 
 const COMMAND = {
+    ADD: "add",
     AUTH: "cmd auth",
     AUTH_FAILED: "cmd auth failed",
 	PAUSE: "cmd pause",
@@ -276,19 +277,22 @@ exports.listen = (server) => {
 
     var dealers = {};
 
-    var dealerKey = {}
+    var dealerKey = {};
 
     const initDealers = async () => {
         var pairs = await Instructor.getPairs();
         for (let i in pairs) {
             var buyer = pairs[i].buyer;
+            if (buyer in dealerKey) {
+                continue;
+            }
             var seller = pairs[i].seller;
-            dealerKey[buyer] = i;
-            dealerKey[seller] = i
+            var key = Object.keys(dealers).length;
+            dealerKey[buyer] = key;
+            dealerKey[seller] = key;
             var dealer = new Dealer(buyer, seller, io);
-            dealers[i] = dealer;
+            dealers[key] = dealer;
         }
-        io.sockets.on('connection', initSocket);
     }
 
     initDealers();
@@ -328,6 +332,10 @@ exports.listen = (server) => {
     
             socket.on(COMMAND.RESUME, () => {
                 instructor.resumeAll();
+            });
+
+            socket.on(COMMAND.ADD, () => {
+                initDealers();
             });
         }
 
@@ -398,6 +406,9 @@ exports.listen = (server) => {
             });
         }
     };
+
+
+    io.sockets.on('connection', initSocket);
 
     return io;
 }

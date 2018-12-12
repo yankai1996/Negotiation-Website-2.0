@@ -1,6 +1,6 @@
-# RA-Website-2.0
+# Negotiation-Website-2.0
 
-Version 2.0 of [RA-Website](https://github.com/yankai1996/RA-Website). A web app for business experiment on negotiation in supply chains.
+Version 2.0 of [Negotiation-Website](https://github.com/yankai1996/Negotiation-Website). A web app for business experiment on negotiation in supply chains.
 
 
 ## Requirements
